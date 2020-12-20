@@ -22,7 +22,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx pretty-quick --staged && npm run lint"
+      "pre-commit": "npx pretty-quick --staged && npm run lint",
+      "pre-rebase": "npx pretty-quick --staged && npm run lint"
     }
   },
   "dependencies": {
