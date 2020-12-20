@@ -3,6 +3,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from '../config';
 import { SNSClient } from './clients/sns.client';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
@@ -18,6 +19,15 @@ import { SNSClient } from './clients/sns.client';
           expiresIn: config.get('auth.jwtExpiration'),
         },
       }),
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      name: 'example-user-db',
+      useFactory: (configService: ConfigService) => {
+        console.log(configService.get('userDb'));
+        return configService.get('userDb');
+      },
+      inject: [ConfigService],
     }),
   ],
   providers: [SNSClient],
