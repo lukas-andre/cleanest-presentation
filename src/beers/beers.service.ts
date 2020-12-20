@@ -8,7 +8,7 @@ import { Beer } from './entities/beer.entity';
 @Injectable()
 export class BeersService {
   constructor(
-    @InjectRepository(Beer)
+    @InjectRepository(Beer, 'example-user-db')
     private readonly beerRepository: Repository<Beer>,
   ) {}
   create(createBeerDto: CreateBeerDto): Promise<Beer> {

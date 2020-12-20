@@ -1,10 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity } from '../../global/entities/base.entity';
+import { Column, Entity } from 'typeorm';
 import { BeerTypes } from '../enum/beer-types.enum';
 
 @Entity()
-export class Beer {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class Beer extends BaseEntity {
   @Column()
   name: string;
   @Column()
