@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from '../config';
+import { SNSClient } from './clients/sns.client';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import config from '../config';
       }),
     }),
   ],
-  exports: [ConfigService],
+  providers: [SNSClient],
+  exports: [ConfigModule, SNSClient],
 })
 export class GlobalModule {}

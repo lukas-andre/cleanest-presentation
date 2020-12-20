@@ -13,7 +13,7 @@ export class RolesService {
   private readonly logger = new Logger(this.serviceName);
 
   constructor(
-    @InjectRepository(Role, 'user-db')
+    @InjectRepository(Role, 'example-user-db')
     private readonly rolesRepository: Repository<Role>,
     private readonly permissionsService: PermissionsService,
   ) {}

@@ -6,7 +6,7 @@ import { Permission } from '../entities/permission.entity';
 @Injectable()
 export class PermissionsService {
   constructor(
-    @InjectRepository(Permission, 'user-db')
+    @InjectRepository(Permission, 'example-user-db')
     private readonly permissionsRepository: Repository<Permission>,
   ) {}
 

@@ -18,7 +18,7 @@ import { RolesService } from './roles.service';
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(User, 'user-db')
+    @InjectRepository(User, 'example-user-db')
     private readonly usersRepository: Repository<User>,
     private readonly configService: ConfigService,
     private readonly rolesService: RolesService,

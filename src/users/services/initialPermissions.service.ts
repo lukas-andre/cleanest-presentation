@@ -12,7 +12,7 @@ export class InitialPermissionsService {
 
   constructor(
     @Inject('ModulesContainer') private readonly container: ModulesContainer,
-    @InjectRepository(Permission, 'user-db')
+    @InjectRepository(Permission, 'example-user-db')
     private readonly permissionsRepository: Repository<Permission>,
   ) {}
 
