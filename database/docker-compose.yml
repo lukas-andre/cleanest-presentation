@@ -2,8 +2,10 @@ version: '3'
 services:
   database:
     image: 'postgres'
-    env_file:
-      - database.env
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=example-user-db
     ports:
       - '5432:5432'
     volumes:
