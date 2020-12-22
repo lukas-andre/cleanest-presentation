@@ -3,11 +3,12 @@ import {
   ApiOperation,
   ApiOkResponse,
   ApiConflictResponse,
+  ApiTags,
 } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LoginRequestDto } from './dto/loginRequest.dto';
 import { LoginResponseDto } from './dto/loginResponse.dto';
-
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
   private readonly logger = new Logger(AuthController.name);

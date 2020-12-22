@@ -5,15 +5,16 @@ import {
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
+  ApiTags,
 } from '@nestjs/swagger';
-
+@ApiTags('orders')
 @Controller('orders')
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
-  @ApiOperation({ summary: 'Create User' })
+  @ApiOperation({ summary: 'Create Order' })
   @ApiCreatedResponse({
-    description: 'Users has been created',
+    description: 'Order has been created',
     type: Boolean,
   })
   @Post()
