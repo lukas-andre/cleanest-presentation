@@ -7,6 +7,8 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
+import { Order } from './entities/order.entity';
+
 @ApiTags('orders')
 @Controller('orders')
 export class OrdersController {
@@ -26,7 +28,8 @@ export class OrdersController {
   @HttpCode(200)
   @ApiOkResponse({
     description: 'Find all Ok',
-    type: Boolean,
+    type: Order,
+    isArray: true,
   })
   @Get()
   findAll() {
