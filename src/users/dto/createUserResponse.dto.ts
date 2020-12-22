@@ -1,9 +1,22 @@
+import { ApiProperty, OmitType } from '@nestjs/swagger';
+import { IsNumber } from 'class-validator';
 import { Role } from '../entities/role.entity';
-export class CreateUserResponseDto {
+import { CreateUserRequestDto } from './createUserRequest.dto';
+export class CreateUserResponseDto extends OmitType(CreateUserRequestDto, [
+  'password',
+  'role',
+] as const) {
+  @ApiProperty({
+    example: 2,
+    description: 'Beer Id',
+  })
+  @IsNumber()
   id: number;
-  username?: string;
-  email?: string;
-  active?: boolean;
-  userType?: string;
-  role?: Role;
+
+  @ApiProperty({
+    example: 'admin',
+    description: 'User role',
+  })
+  @IsNumber()
+  role: Role;
 }

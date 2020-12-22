@@ -10,5 +10,5 @@ export default registerAs('userDb', () => ({
   port: 5432,
   entities: [__dirname + '/../{users,beers}/**/*.entity{.ts,.js}'],
   synchronize: Boolean(process.env.TYPEORM_SYNC),
-  logging: true,
+  logging: ['error'],
 }));

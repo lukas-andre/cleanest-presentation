@@ -44,7 +44,7 @@ export class ProcessOrderConsumer {
   }
 
   async handleMessage(message: SQS.Message) {
-    this.logger.log(ProcessOrderConsumer.name);
+    this.logger.log(this.name);
     const payload = JSON.parse(JSON.parse(message.Body).Message);
     this.logger.log(`OrderPayload:  ${JSON.stringify(payload)}`);
     const order: Order = payload;

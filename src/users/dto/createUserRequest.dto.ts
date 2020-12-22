@@ -29,7 +29,7 @@ export class CreateUserRequestDto {
   readonly lastName: string;
 
   @ApiProperty({
-    example: 'lucas.henry@inker.cloud',
+    example: 'lucas.henry@witi.cl',
     description: 'User Email',
     required: false,
   })

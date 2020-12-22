@@ -9,6 +9,6 @@ export default registerAs('orderDb', () => ({
   database: 'example-order',
   port: 5432,
   entities: [__dirname + '/../orders/**/*.entity{.ts,.js}'],
-  synchronize: process.env.TYPEORM_SYNC,
-  logging: true,
+  synchronize: Boolean(process.env.TYPEORM_SYNC),
+  logging: ['error'],
 }));

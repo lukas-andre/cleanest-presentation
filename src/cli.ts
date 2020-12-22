@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { InternalServerErrorException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
@@ -6,7 +7,8 @@ import { ConsumersModule } from './consumers/consumers.module';
 import { CONSUMER, CRON } from './global/constants/appTypes';
 
 async function bootstrap() {
-  console.log(`Starting cli`, new Date());
+  const logger = new Logger(bootstrap.name);
+  logger.log(`Starting cli` + new Date());
 
   const params: { method?: string; appType?: string } = {};
 
@@ -29,6 +31,7 @@ async function bootstrap() {
     case CONSUMER: {
       process.env.TYPEORM_SYNC = null;
       const app = await NestFactory.create(AppModule);
+      app.enableShutdownHooks();
       await app.init();
 
       try {

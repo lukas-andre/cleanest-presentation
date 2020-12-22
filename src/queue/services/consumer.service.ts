@@ -1,8 +1,8 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, OnApplicationShutdown } from '@nestjs/common';
 import { Consumer } from 'sqs-consumer';
 
 @Injectable()
-export class ConsumerService {
+export class ConsumerService implements OnApplicationShutdown {
   private consumers: Array<{ name: string; app: Consumer }> = [];
 
   async startConsumer(

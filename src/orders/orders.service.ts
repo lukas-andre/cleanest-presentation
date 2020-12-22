@@ -17,6 +17,7 @@ export class OrdersService {
     private readonly SNSClient: SNSClient,
     private readonly configService: ConfigService,
   ) {}
+
   async publishProccessOrder(createOrderDto: CreateOrderDto) {
     const result = await this.SNSClient.publishMessageToTopic(
       createOrderDto,
