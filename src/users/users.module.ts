@@ -8,12 +8,14 @@ import { User } from './entities/user.entity';
 import { RolesService } from './services/roles.service';
 import { PermissionsService } from './services/permissions.service';
 import { InitialPermissionsService } from './services/initialPermissions.service';
+import { RolesController } from './controllers/roles.controller';
+import { PermissionsController } from './controllers/permissions.controller';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User, Role, Permission], 'example-user-db'),
   ],
-  controllers: [UsersController],
+  controllers: [UsersController, PermissionsController, RolesController],
   providers: [
     UsersService,
     RolesService,

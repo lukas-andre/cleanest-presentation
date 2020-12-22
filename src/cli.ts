@@ -17,8 +17,6 @@ async function bootstrap() {
     }
   });
 
-  console.log('params: ', params);
-
   if ([CONSUMER, CRON].includes(params.appType) && !params.appType) {
     throw new InternalServerErrorException(`You must provide a valid app type`);
   }

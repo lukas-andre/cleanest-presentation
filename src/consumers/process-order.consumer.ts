@@ -58,9 +58,6 @@ export class ProcessOrderConsumer {
       this.logger.log('order already exists');
       return false;
     }
-    console.log('pase');
-
-    console.log('exists: ', exists);
 
     return await this.ordersService.create(order);
   }

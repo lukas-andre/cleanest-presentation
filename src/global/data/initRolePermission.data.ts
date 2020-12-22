@@ -10,10 +10,15 @@ export const initRolePermissions: InitRolePermissions[] = [
   },
   {
     role: 'beer',
-    controllers: ['*'],
+    controllers: ['BeersController'],
   },
   {
-    role: 'lessor',
-    controllers: ['AuthController', 'UsersController'],
+    role: 'customer',
+    controllers: [
+      'AuthController',
+      'UsersController',
+      'BeersController',
+      'OrdersController',
+    ],
   },
 ];

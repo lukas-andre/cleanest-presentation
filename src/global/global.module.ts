@@ -24,7 +24,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       imports: [ConfigModule],
       name: 'example-user-db',
       useFactory: (configService: ConfigService) => {
-        console.log(configService.get('userDb'));
         return configService.get('userDb');
       },
       inject: [ConfigService],
@@ -33,13 +32,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       imports: [ConfigModule],
       name: 'example-order-db',
       useFactory: (configService: ConfigService) => {
-        console.log(configService.get('orderDb'));
         return configService.get('orderDb');
       },
       inject: [ConfigService],
     }),
   ],
   providers: [SNSClient],
-  exports: [ConfigModule, SNSClient],
+  exports: [ConfigModule, SNSClient, JwtModule],
 })
 export class GlobalModule {}

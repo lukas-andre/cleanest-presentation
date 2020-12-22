@@ -1,5 +1,4 @@
 import { Role } from '../entities/role.entity';
-
 export class CreateUserResponseDto {
   id: number;
   username?: string;

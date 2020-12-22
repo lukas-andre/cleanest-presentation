@@ -8,6 +8,7 @@ import {
 import { AuthService } from './auth.service';
 import { LoginRequestDto } from './dto/loginRequest.dto';
 import { LoginResponseDto } from './dto/loginResponse.dto';
+import { JwtPayload } from './interfaces/jwtPayload.inteface';
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
@@ -20,9 +21,7 @@ export class AuthController {
   @ApiOkResponse({ description: 'Login successful.', type: LoginResponseDto })
   @ApiConflictResponse({ description: 'Invalid credentials.' })
   @Post('login')
-  async login(
-    @Body() loginRequestDto: LoginRequestDto,
-  ): Promise<LoginResponseDto> {
-    return await this.authService.login(loginRequestDto);
+  async login(@Body() loginRequestDto: LoginRequestDto): Promise<JwtPayload> {
+    return this.authService.login(loginRequestDto);
   }
 }

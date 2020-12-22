@@ -2,7 +2,6 @@ import { Logger } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AWSError } from 'aws-sdk';
 import { FindManyOptions, Repository } from 'typeorm';
 import { SNSClient } from '../global/clients/sns.client';
 import { CreateOrderDto } from './dto/create-order.dto';
@@ -28,7 +27,6 @@ export class OrdersService {
   }
 
   async create(createOrderDto: CreateOrderDto) {
-    console.log('createOrderDto: ', createOrderDto);
     return await this.ordersRepository.save(createOrderDto);
   }
 
